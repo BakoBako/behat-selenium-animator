@@ -1,6 +1,6 @@
 <?php
 
-namespace Bako\Behat\BehatSeleniumVideo\Cli;
+namespace Bako\Behat\BehatSeleniumVideoExtension\Cli;
 
 use Behat\Testwork\Cli\Controller;
 use  Bako\Behat\BehatSeleniumVideo\ServiceContainer\Config;

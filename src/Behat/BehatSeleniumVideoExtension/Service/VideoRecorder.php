@@ -1,6 +1,6 @@
 <?php
 
-namespace Bako\Behat\BehatSeleniumVideo\Service;
+namespace Bako\Behat\BehatSeleniumVideoExtension\Service;
 
 class VideoRecorder
 {

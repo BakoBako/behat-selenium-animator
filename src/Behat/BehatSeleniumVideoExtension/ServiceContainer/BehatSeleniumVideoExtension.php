@@ -1,6 +1,6 @@
 <?php
 
-namespace Bako\Behat\BehatSeleniumVideo\ServiceContainer;
+namespace Bako\Behat\BehatSeleniumVideoExtension\ServiceContainer;
 
 use Behat\Testwork\ServiceContainer\Extension;
 use Behat\Testwork\ServiceContainer\ExtensionManager;
