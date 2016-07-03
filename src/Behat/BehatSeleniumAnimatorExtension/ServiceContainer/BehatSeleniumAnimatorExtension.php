@@ -1,6 +1,6 @@
 <?php
 
-namespace Bako\Behat\BehatSeleniumVideoExtension\ServiceContainer;
+namespace Bako\Behat\BehatSeleniumAnimatorExtension\ServiceContainer;
 
 use Behat\Testwork\ServiceContainer\Extension;
 use Behat\Testwork\ServiceContainer\ExtensionManager;
@@ -14,9 +14,9 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
  *
  * @license http://opensource.org/licenses/MIT The MIT License
  */
-class BehatSeleniumVideoExtension implements Extension
+class BehatSeleniumAnimatorExtension implements Extension
 {
-    const CONFIG_KEY = 'behatseleniumvideo';
+    const CONFIG_KEY = 'behatseleniumanimator';
 
      /**
      * {@inheritdoc}
@@ -31,7 +31,7 @@ class BehatSeleniumVideoExtension implements Extension
      */
     public function process(ContainerBuilder $container)
     {
-        // nothing to do here
+        // nothing to do here        
     }
 
     /**
@@ -39,14 +39,14 @@ class BehatSeleniumVideoExtension implements Extension
      */
     public function initialize(ExtensionManager $extensionManager)
     {
-        // nothing to do here
+        // nothing to do here        
     }
 
     /**
      * {@inheritdoc}
      */
     public function configure(ArrayNodeDefinition $builder)
-    {
+    {                
         $builder
             ->children()
                 ->booleanNode('enabled_always')
@@ -55,7 +55,7 @@ class BehatSeleniumVideoExtension implements Extension
                 ->scalarNode('output_directory')
                     ->defaultValue(sys_get_temp_dir() . DIRECTORY_SEPARATOR . self::CONFIG_KEY)
                 ->end()
-            ->end();
+            ->end();        
     }
 
     /**
@@ -67,6 +67,6 @@ class BehatSeleniumVideoExtension implements Extension
         $loader->load('services.xml');
 
         $extensionConfig = new Config($container, $config);
-        $container->set('bako.behat_selenium_video_extension.config', $extensionConfig);
+        $container->set('bako.behat_selenium_animator_extension.config', $extensionConfig);
     }
 }

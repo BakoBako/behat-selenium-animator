@@ -1,15 +1,15 @@
 <?php
 
-namespace Bako\Behat\BehatSeleniumVideoExtension\Cli;
+namespace Bako\Behat\BehatSeleniumAnimatorExtension\Cli;
 
 use Behat\Testwork\Cli\Controller;
-use  Bako\Behat\BehatSeleniumVideo\ServiceContainer\Config;
+use Bako\Behat\BehatSeleniumAnimatorExtension\ServiceContainer\Config;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-final class BehatSeleniumVideoController implements Controller
+final class BehatSeleniumAnimatorController implements Controller
 {
     /**
      * @var Config
@@ -31,7 +31,7 @@ final class BehatSeleniumVideoController implements Controller
      */
     public function configure(SymfonyCommand $command)
     {
-        $command->addOption('--video-record', null, InputOption::VALUE_NONE, 'Record steps video');
+        $command->addOption('--animator-record', null, InputOption::VALUE_NONE, 'Record steps animator');
     }
 
     /**
@@ -39,7 +39,7 @@ final class BehatSeleniumVideoController implements Controller
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        if ($input->getOption('video-record')) {
+        if ($input->getOption('animator-record')) {
             $this->config->enableRecording();
         }
     }

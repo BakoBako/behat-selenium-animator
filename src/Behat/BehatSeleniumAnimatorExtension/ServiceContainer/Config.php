@@ -1,6 +1,6 @@
 <?php
 
-namespace Bako\Behat\BehatSeleniumVideoExtension\ServiceContainer;
+namespace Bako\Behat\BehatSeleniumAnimatorExtension\ServiceContainer;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 

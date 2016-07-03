@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="bako.behat_selenium_animator_extension.config" class="Bako\Behat\BehatSeleniumAnimatorExtension\ServiceContainer\Config" />
+
+        <service id="bako.behat_selenium_animator_extension.animator_recorder" class="Bako\Behat\BehatSeleniumAnimatorExtension\Service\AnimatorRecorder" />
+
+        <service id="bako.behat_selenium_animator_extension.cli_controller" class="Bako\Behat\BehatSeleniumAnimatorExtension\Cli\BehatSeleniumAnimatorController">
+            <tag name="cli.controller" priority="1"/>
+            <argument type="service" id="bako.behat_selenium_animator_extension.config" />
+        </service>
+
+        <!-- event listener -->
+        <service id="bako.behat_selenium_animator_extension.behatseleniumanimator_listener" class="Bako\Behat\BehatSeleniumAnimatorExtension\Listener\BehatSeleniumAnimatorListener" public="false">
+            <tag name="event_dispatcher.subscriber" />
+            <argument type="service" id="mink" />
+            <argument type="service" id="bako.behat_selenium_animator_extension.config" />
+            <argument type="service" id="bako.behat_selenium_animator_extension.animator_recorder" />
+        </service>
+    </services>
+</container>
