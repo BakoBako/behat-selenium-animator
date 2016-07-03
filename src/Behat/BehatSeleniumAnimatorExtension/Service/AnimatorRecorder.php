@@ -26,10 +26,10 @@ class AnimatorRecorder
         $this->screenShots[] = $screenShot;
     }    
     
-    public function buildAnimator($outputDirectory)
+    public function buildAnimator($outputDirectory, $scenarioName)
     {
-        $fileName = $this->generateFileName() . '.' . $this->getAnimatorExtension();
-        
+        $fileName = $this->generateFileName($scenarioName) . '.' . $this->getAnimatorExtension();
+       
         $this->generateAnimator();
         $this->saveAnimator($outputDirectory, $fileName);
     }   
@@ -74,12 +74,12 @@ class AnimatorRecorder
         return 'gif';
     }    
     
-    private function generateFileName()
+    private function generateFileName($scenarioName)
     {
         return sprintf(
-            '%s_%s.%s',
+            '%s_%s_%s',
+            $scenarioName,
             date('Ymd') . '-' . date('His'),
-            uniqid('', true),
             uniqid('', true)
         );        
     }

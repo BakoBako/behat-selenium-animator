@@ -6,6 +6,7 @@ use Behat\Behat\EventDispatcher\Event\BeforeStepTested;
 use Behat\Behat\EventDispatcher\Event\AfterStepTested;
 use Behat\Behat\EventDispatcher\Event\StepTested;
 use Behat\Behat\EventDispatcher\Event\ScenarioTested;
+use Behat\Behat\EventDispatcher\Event\AfterScenarioTested;
 use Bako\Behat\BehatSeleniumAnimatorExtension\ServiceContainer\Config;
 use Bako\Behat\BehatSeleniumAnimatorExtension\Service\AnimatorRecorder;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -124,14 +125,19 @@ final class BehatSeleniumAnimatorListener implements EventSubscriberInterface
     }
 
     /**
+     * @param AfterScenarioTested $event
+     * 
      * @return void
      */
-    public function scenarioFinished()
+    public function scenarioFinished(AfterScenarioTested $event)
     {
         $this->takeScreenShot();
         
         if ($this->canRecord) {
-            $this->animatorRecorder->buildAnimator($this->config->getOutputDirectory());
+            $this->animatorRecorder->buildAnimator(
+                $this->config->getOutputDirectory(),
+                $event->getScenario()->getTitle()
+            );
         }
     }
 }
