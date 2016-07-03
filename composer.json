@@ -1,8 +1,8 @@
 {
     "name": "bako/behat-selenium-animator",
     "type": "library",
-    "description": "Record animator from behat seleniums tests",
-    "keywords": ["behat", "selenium", "testing", "animator"],
+    "description": "Generate gif animation from behat selenium steps",
+    "keywords": ["behat", "selenium", "testing", "animation", "animator", "gif"],
     "license": "MIT",
     "authors": [
         {
