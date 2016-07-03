@@ -14,3 +14,7 @@ Add to behat configiration extension:
 ## Basic Usage
 
 Add "--animator-record" option when running behat
+
+## Recommendation
+
+Please use web driver focus on some elements that you want to be visible in animation.
