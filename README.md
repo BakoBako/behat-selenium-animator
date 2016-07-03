@@ -9,8 +9,8 @@ composer require bako/behat-selenium-animator
 Add to behat configiration extension:
     Bako\Behat\BehatSeleniumAnimatorExtension: ~ 
 
-Params:
-    - output_directory: directory_path (default is "/tmp/behatseleniumanimator/") <br />
+Params:  
+    - output_directory: directory_path (default is "/tmp/behatseleniumanimator/")  
     - enabled_always: true/false (not recommended)
 
 ## Basic Usage
