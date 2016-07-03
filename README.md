@@ -10,7 +10,7 @@ Add to behat configiration extension:
     Bako\Behat\BehatSeleniumAnimatorExtension: ~ 
 
 Params:
-    - output_directory: directory_path (default is "/tmp/behatseleniumanimator/")
+    - output_directory: directory_path (default is "/tmp/behatseleniumanimator/") <br />
     - enabled_always: true/false (not recommended)
 
 ## Basic Usage
