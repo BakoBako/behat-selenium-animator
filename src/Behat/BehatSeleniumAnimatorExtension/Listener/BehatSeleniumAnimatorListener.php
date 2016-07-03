@@ -74,9 +74,7 @@ final class BehatSeleniumAnimatorListener implements EventSubscriberInterface
     }
 
     private function canTakeScreenShot()
-    {
-        $this->checkRecorder();
-        
+    {                
         return ($this->config->isRecordingEnabled() && $this->canRecord);
     }
 
@@ -121,6 +119,7 @@ final class BehatSeleniumAnimatorListener implements EventSubscriberInterface
      */
     public function scenarioStarted()
     {
+        $this->checkRecorder();        
         $this->takeScreenShot();
     }
 
@@ -130,6 +129,9 @@ final class BehatSeleniumAnimatorListener implements EventSubscriberInterface
     public function scenarioFinished()
     {
         $this->takeScreenShot();
-        $this->animatorRecorder->buildAnimator($this->config->getOutputDirectory());
+        
+        if ($this->canRecord) {
+            $this->animatorRecorder->buildAnimator($this->config->getOutputDirectory());
+        }
     }
 }
