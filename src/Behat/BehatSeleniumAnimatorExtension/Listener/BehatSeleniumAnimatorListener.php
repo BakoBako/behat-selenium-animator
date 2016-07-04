@@ -35,7 +35,7 @@ final class BehatSeleniumAnimatorListener implements EventSubscriberInterface
     /**
      * @var boolean
      */
-    private $canRecord;
+    private $canRecord = false;
 
     /**
      * @param Config         $config
@@ -133,7 +133,7 @@ final class BehatSeleniumAnimatorListener implements EventSubscriberInterface
     {
         $this->takeScreenShot();
         
-        if ($this->canRecord) {
+        if ($this->canRecord && $this->config->isRecordingEnabled()) {
             $this->animatorRecorder->buildAnimator(
                 $this->config->getOutputDirectory(),
                 $event->getScenario()->getTitle()
